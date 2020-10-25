@@ -1,0 +1,1 @@
+ssh -i ssh/id_rsa -o StrictHostKeyChecking=no root@$1 "sed -i 's/null/\"$2\"/g; s/empty/busy/g' /etc/consul.d/services.json | consul services register /etc/consul.d/services.json"
