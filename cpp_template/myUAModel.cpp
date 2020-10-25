@@ -1,4 +1,6 @@
+
 #include "myUAModel.h"
+
 
 UA_StatusCode manuallyDefineCPPSProduct(UA_Server * server)
 {
@@ -261,11 +263,11 @@ UA_StatusCode manuallyDefineCPPSProduct(UA_Server * server)
                                 NULL,
                                 NULL);
 
-    /* 添加对象类型  Box_Wood  */
-    UA_NodeId Box_Wood_Type= UA_NODEID_STRING(3, (char*)"Box_Wood");
+    /* 添加对象类型  Box___UDisk_OR_Wood__  */
+    UA_NodeId Box___UDisk_OR_Wood___Type= UA_NODEID_STRING(3, (char*)"Box___UDisk_OR_Wood__");
 
-    UA_ObjectTypeAttributes Box_Wood_Type_Attributes = UA_ObjectTypeAttributes_default;
-    Box_Wood_Type_Attributes.displayName = UA_LOCALIZEDTEXT((char*)"", (char*)"Box_Wood");
+    UA_ObjectTypeAttributes Box___UDisk_OR_Wood___Type_Attributes = UA_ObjectTypeAttributes_default;
+    Box___UDisk_OR_Wood___Type_Attributes.displayName = UA_LOCALIZEDTEXT((char*)"", (char*)"Box___UDisk_OR_Wood__");
     /*
     UA_Server_addObjectTypeNode(UA_Server *server,
         const UA_NodeId requestedNewNodeId,
@@ -277,11 +279,11 @@ UA_StatusCode manuallyDefineCPPSProduct(UA_Server * server)
         UA_NodeId *outNewNodeId);
     */
     UA_Server_addObjectTypeNode(server,
-                                Box_Wood_Type,
+                                Box___UDisk_OR_Wood___Type,
                                 FinishedProduct,
                                 UA_NODEID_NUMERIC(0, UA_NS0ID_HASSUBTYPE),
-                                UA_QUALIFIEDNAME(3, (char*)"Box_Wood"),
-                                Box_Wood_Type_Attributes,
+                                UA_QUALIFIEDNAME(3, (char*)"Box___UDisk_OR_Wood__"),
+                                Box___UDisk_OR_Wood___Type_Attributes,
                                 NULL,
                                 NULL);
 
@@ -411,14 +413,14 @@ UA_StatusCode manuallyDefineCPPSProduct(UA_Server * server)
                             NULL);
 
     //这里除了问题
-    /* 添加 Box_Wood 对象 */
+    /* 添加 Box___UDisk_OR_Wood__ 对象 */
 
-    UA_NodeId Box_Wood_Object = UA_NODEID_STRING(3, (char*)"__PRODUCT_GUID__");
+    UA_NodeId Box___UDisk_OR_Wood___Object = UA_NODEID_STRING(3, (char*)"__PRODUCT_GUID__");
 
-    UA_ObjectAttributes Box_Wood_Object_Attributes = UA_ObjectAttributes_default;
+    UA_ObjectAttributes Box___UDisk_OR_Wood___Object_Attributes = UA_ObjectAttributes_default;
 
-    Box_Wood_Object_Attributes.description = UA_LOCALIZEDTEXT((char*)"", (char*)"");
-    Box_Wood_Object_Attributes.displayName = UA_LOCALIZEDTEXT((char*)"", (char*)"Box_Wood");
+    Box___UDisk_OR_Wood___Object_Attributes.description = UA_LOCALIZEDTEXT((char*)"", (char*)"");
+    Box___UDisk_OR_Wood___Object_Attributes.displayName = UA_LOCALIZEDTEXT((char*)"", (char*)"Box___UDisk_OR_Wood__");
 
     //
     //UA_Server_addObjectNode(UA_Server *server,
@@ -432,12 +434,12 @@ UA_StatusCode manuallyDefineCPPSProduct(UA_Server * server)
     //	UA_NodeId *outNewNodeId);
 
     UA_Server_addObjectNode(server,
-                            Box_Wood_Object,
+                            Box___UDisk_OR_Wood___Object,
                             Product,
                             UA_NODEID_NUMERIC(0, UA_NS0ID_HASCOMPONENT),
-                            UA_QUALIFIEDNAME(3, (char*)"Box_Wood"),
-                            Box_Wood_Type,
-                            Box_Wood_Object_Attributes,
+                            UA_QUALIFIEDNAME(3, (char*)"Box___UDisk_OR_Wood__"),
+                            Box___UDisk_OR_Wood___Type,
+                            Box___UDisk_OR_Wood___Object_Attributes,
                             NULL,
                             NULL);
 
@@ -463,7 +465,7 @@ UA_StatusCode manuallyDefineCPPSProduct(UA_Server * server)
 
     UA_Server_addObjectNode(server,
                             AAS,
-                            Box_Wood_Object,
+                            Box___UDisk_OR_Wood___Object,
                             UA_NODEID_NUMERIC(0, UA_NS0ID_HASCOMPONENT),
                             UA_QUALIFIEDNAME(3, (char*)"AAS"),
                             AMLInternalElement,
@@ -1057,6 +1059,192 @@ UA_StatusCode manuallyDefineCPPSProduct(UA_Server * server)
                             NULL);
 
 
+
+    /* 添加 FeatureStarttime 对象 */
+    UA_ObjectAttributes Start_time_Attributes = UA_ObjectAttributes_default;
+
+    Start_time_Attributes.description = UA_LOCALIZEDTEXT((char*)"", (char*)"");
+    Start_time_Attributes.displayName = UA_LOCALIZEDTEXT((char*)"", (char*)"Start time");
+
+    /*   Feature1的  */
+    char *guid_Start_time_1 = (char*)"__PRODUCT_GUID__/AAS/ProductFeature/Feature_1/Start_time";
+
+    UA_Server_addObjectNode(server,
+                            UA_NODEID_STRING(3, guid_Start_time_1),
+                            Feature_1,
+                            UA_NODEID_NUMERIC(0, UA_NS0ID_HASCOMPONENT),
+                            UA_QUALIFIEDNAME(3, (char*)"FeatureDescription"),
+                            AMLInternalElement,
+                            Start_time_Attributes,
+                            NULL,
+                            NULL);
+
+    /*   Feature2的  */
+    char *guid_Start_time_2 = (char*)"__PRODUCT_GUID__/AAS/ProductFeature/Feature_2/Start_time";
+
+    UA_Server_addObjectNode(server,
+                            UA_NODEID_STRING(3, guid_Start_time_2),
+                            Feature_2,
+                            UA_NODEID_NUMERIC(0, UA_NS0ID_HASCOMPONENT),
+                            UA_QUALIFIEDNAME(3, (char*)"FeatureDescription"),
+                            AMLInternalElement,
+                            Start_time_Attributes,
+                            NULL,
+                            NULL);
+
+
+    /*   Feature3的  */
+    char *guid_Start_time_3 = (char*)"__PRODUCT_GUID__/AAS/ProductFeature/Feature_3/Start_time";
+
+    UA_Server_addObjectNode(server,
+                            UA_NODEID_STRING(3, guid_Start_time_3),
+                            Feature_3,
+                            UA_NODEID_NUMERIC(0, UA_NS0ID_HASCOMPONENT),
+                            UA_QUALIFIEDNAME(3, (char*)"FeatureDescription"),
+                            AMLInternalElement,
+                            Start_time_Attributes,
+                            NULL,
+                            NULL);
+
+
+    /*   Feature4的  */
+    char *guid_Start_time_4 = (char*)"__PRODUCT_GUID__/AAS/ProductFeature/Feature_4/Start_time";
+
+    UA_Server_addObjectNode(server,
+                            UA_NODEID_STRING(3, guid_Start_time_4),
+                            Feature_4,
+                            UA_NODEID_NUMERIC(0, UA_NS0ID_HASCOMPONENT),
+                            UA_QUALIFIEDNAME(3, (char*)"FeatureDescription"),
+                            AMLInternalElement,
+                            Start_time_Attributes,
+                            NULL,
+                            NULL);
+
+
+    /*   Feature5的  */
+    char *guid_Start_time_5 = (char*)"__PRODUCT_GUID__/AAS/ProductFeature/Feature_5/Start_time";
+
+    UA_Server_addObjectNode(server,
+                            UA_NODEID_STRING(3, guid_Start_time_5),
+                            Feature_5,
+                            UA_NODEID_NUMERIC(0, UA_NS0ID_HASCOMPONENT),
+                            UA_QUALIFIEDNAME(3, (char*)"FeatureDescription"),
+                            AMLInternalElement,
+                            Start_time_Attributes,
+                            NULL,
+                            NULL);
+
+
+    /*   Feature6的  */
+    char *guid_Start_time_6 = (char*)"__PRODUCT_GUID__/AAS/ProductFeature/Feature_6/Start_time";
+
+    UA_Server_addObjectNode(server,
+                            UA_NODEID_STRING(3, guid_Start_time_6),
+                            Feature_6,
+                            UA_NODEID_NUMERIC(0, UA_NS0ID_HASCOMPONENT),
+                            UA_QUALIFIEDNAME(3, (char*)"FeatureDescription"),
+                            AMLInternalElement,
+                            Start_time_Attributes,
+                            NULL,
+                            NULL);
+
+
+
+
+
+    /* 添加 FeatureEnd_time 对象 */
+    UA_ObjectAttributes End_time_Attributes = UA_ObjectAttributes_default;
+
+    End_time_Attributes.description = UA_LOCALIZEDTEXT((char*)"", (char*)"");
+    End_time_Attributes.displayName = UA_LOCALIZEDTEXT((char*)"", (char*)"End time");
+
+    /*   Feature1的  */
+    char *guid_End_time_1 = (char*)"__PRODUCT_GUID__/AAS/ProductFeature/Feature_1/End_time";
+
+    UA_Server_addObjectNode(server,
+                            UA_NODEID_STRING(3, guid_End_time_1),
+                            Feature_1,
+                            UA_NODEID_NUMERIC(0, UA_NS0ID_HASCOMPONENT),
+                            UA_QUALIFIEDNAME(3, (char*)"FeatureDescription"),
+                            AMLInternalElement,
+                            End_time_Attributes,
+                            NULL,
+                            NULL);
+
+    /*   Feature2的  */
+    char *guid_End_time_2 = (char*)"__PRODUCT_GUID__/AAS/ProductFeature/Feature_2/End_time";
+
+    UA_Server_addObjectNode(server,
+                            UA_NODEID_STRING(3, guid_End_time_2),
+                            Feature_2,
+                            UA_NODEID_NUMERIC(0, UA_NS0ID_HASCOMPONENT),
+                            UA_QUALIFIEDNAME(3, (char*)"FeatureDescription"),
+                            AMLInternalElement,
+                            End_time_Attributes,
+                            NULL,
+                            NULL);
+
+
+    /*   Feature3的  */
+    char *guid_End_time_3 = (char*)"__PRODUCT_GUID__/AAS/ProductFeature/Feature_3/End_time";
+
+    UA_Server_addObjectNode(server,
+                            UA_NODEID_STRING(3, guid_End_time_3),
+                            Feature_3,
+                            UA_NODEID_NUMERIC(0, UA_NS0ID_HASCOMPONENT),
+                            UA_QUALIFIEDNAME(3, (char*)"FeatureDescription"),
+                            AMLInternalElement,
+                            End_time_Attributes,
+                            NULL,
+                            NULL);
+
+
+    /*   Feature4的  */
+    char *guid_End_time_4 = (char*)"__PRODUCT_GUID__/AAS/ProductFeature/Feature_4/End_time";
+
+    UA_Server_addObjectNode(server,
+                            UA_NODEID_STRING(3, guid_End_time_4),
+                            Feature_4,
+                            UA_NODEID_NUMERIC(0, UA_NS0ID_HASCOMPONENT),
+                            UA_QUALIFIEDNAME(3, (char*)"FeatureDescription"),
+                            AMLInternalElement,
+                            End_time_Attributes,
+                            NULL,
+                            NULL);
+
+
+    /*   Feature5的  */
+    char *guid_End_time_5 = (char*)"__PRODUCT_GUID__/AAS/ProductFeature/Feature_5/End_time";
+
+    UA_Server_addObjectNode(server,
+                            UA_NODEID_STRING(3, guid_End_time_5),
+                            Feature_5,
+                            UA_NODEID_NUMERIC(0, UA_NS0ID_HASCOMPONENT),
+                            UA_QUALIFIEDNAME(3, (char*)"FeatureDescription"),
+                            AMLInternalElement,
+                            End_time_Attributes,
+                            NULL,
+                            NULL);
+
+
+    /*   Feature6的  */
+    char *guid_End_time_6 = (char*)"__PRODUCT_GUID__/AAS/ProductFeature/Feature_6/End_time";
+
+    UA_Server_addObjectNode(server,
+                            UA_NODEID_STRING(3, guid_End_time_6),
+                            Feature_6,
+                            UA_NODEID_NUMERIC(0, UA_NS0ID_HASCOMPONENT),
+                            UA_QUALIFIEDNAME(3, (char*)"FeatureDescription"),
+                            AMLInternalElement,
+                            End_time_Attributes,
+                            NULL,
+                            NULL);
+
+
+
+
+
+
     /* 添加 FeatureParameter 对象 */
     UA_ObjectAttributes FeatureParameter_Attributes = UA_ObjectAttributes_default;
 
@@ -1239,6 +1427,7 @@ UA_StatusCode manuallyDefineCPPSProduct(UA_Server * server)
 
 //    std::string secondPart = ":value";
 
+    /*   Feature Description 的Value对象  */
 
     /*   Feature1的Value  */
 
@@ -1333,6 +1522,7 @@ UA_StatusCode manuallyDefineCPPSProduct(UA_Server * server)
 
 
     /* 添加 Value 对象 */
+
 
     /*   Feature1的Value  */
 
@@ -1518,6 +1708,202 @@ UA_StatusCode manuallyDefineCPPSProduct(UA_Server * server)
                             NULL);
 
 
+    ////////
+
+    /*   Feature Start_time 的Value对象  */
+
+    /*   Feature1的Value  */
+
+    std::string temp_Start_time_1 = guid_Start_time_1 + secondPart;
+    //QByteArray whole_1 = temp_Start_time_1.toLatin1();
+    char *value_Start_time_1= const_cast<char *>(temp_Start_time_1.c_str());
+
+    UA_Server_addObjectNode(server,
+                            UA_NODEID_STRING(3, value_Start_time_1),
+                            UA_NODEID_STRING(3, guid_Start_time_1),
+                            UA_NODEID_NUMERIC(0, UA_NS0ID_HASCOMPONENT),
+                            UA_QUALIFIEDNAME(3, (char*)"value"),
+                            AMLAttributeType,
+                            Value_Attributes,
+                            NULL,
+                            NULL);
+
+    /*   Feature2的Value  */
+    std::string temp_Start_time_2 = guid_Start_time_2 + secondPart;
+    //QByteArray whole_1 = temp_Start_time_1.toLatin1();
+    char *value_Start_time_2= const_cast<char *>(temp_Start_time_2.c_str());
+
+    UA_Server_addObjectNode(server,
+                            UA_NODEID_STRING(3, value_Start_time_2),
+                            UA_NODEID_STRING(3, guid_Start_time_2),
+                            UA_NODEID_NUMERIC(0, UA_NS0ID_HASCOMPONENT),
+                            UA_QUALIFIEDNAME(3, (char*)"value"),
+                            AMLAttributeType,
+                            Value_Attributes,
+                            NULL,
+                            NULL);
+
+    /*   Feature3的Value  */
+    std::string temp_Start_time_3 = guid_Start_time_3 + secondPart;
+    //QByteArray whole_1 = temp_Start_time_1.toLatin1();
+    char *value_Start_time_3= const_cast<char *>(temp_Start_time_3.c_str());
+
+    UA_Server_addObjectNode(server,
+                            UA_NODEID_STRING(3, value_Start_time_3),
+                            UA_NODEID_STRING(3, guid_Start_time_3),
+                            UA_NODEID_NUMERIC(0, UA_NS0ID_HASCOMPONENT),
+                            UA_QUALIFIEDNAME(3, (char*)"value"),
+                            AMLAttributeType,
+                            Value_Attributes,
+                            NULL,
+                            NULL);
+
+    /*   Feature4的Value  */
+    std::string temp_Start_time_4 = guid_Start_time_4 + secondPart;
+    //QByteArray whole_1 = temp_Start_time_1.toLatin1();
+    char *value_Start_time_4= const_cast<char *>(temp_Start_time_4.c_str());
+
+    UA_Server_addObjectNode(server,
+                            UA_NODEID_STRING(3, value_Start_time_4),
+                            UA_NODEID_STRING(3, guid_Start_time_4),
+                            UA_NODEID_NUMERIC(0, UA_NS0ID_HASCOMPONENT),
+                            UA_QUALIFIEDNAME(3, (char*)"value"),
+                            AMLAttributeType,
+                            Value_Attributes,
+                            NULL,
+                            NULL);
+
+    /*   Feature5的Value  */
+    std::string temp_Start_time_5 = guid_Start_time_5 + secondPart;
+    //QByteArray whole_1 = temp_Start_time_1.toLatin1();
+    char *value_Start_time_5= const_cast<char *>(temp_Start_time_5.c_str());
+
+    UA_Server_addObjectNode(server,
+                            UA_NODEID_STRING(3, value_Start_time_5),
+                            UA_NODEID_STRING(3, guid_Start_time_5),
+                            UA_NODEID_NUMERIC(0, UA_NS0ID_HASCOMPONENT),
+                            UA_QUALIFIEDNAME(3, (char*)"value"),
+                            AMLAttributeType,
+                            Value_Attributes,
+                            NULL,
+                            NULL);
+
+    /*   Feature6的Value  */
+    std::string temp_Start_time_6 = guid_Start_time_6 + secondPart;
+    //QByteArray whole_1 = temp_Start_time_1.toLatin1();
+    char *value_Start_time_6= const_cast<char *>(temp_Start_time_6.c_str());
+
+    UA_Server_addObjectNode(server,
+                            UA_NODEID_STRING(3, value_Start_time_6),
+                            UA_NODEID_STRING(3, guid_Start_time_6),
+                            UA_NODEID_NUMERIC(0, UA_NS0ID_HASCOMPONENT),
+                            UA_QUALIFIEDNAME(3, (char*)"value"),
+                            AMLAttributeType,
+                            Value_Attributes,
+                            NULL,
+                            NULL);
+
+
+    //////
+
+    /*   Feature End_time 的Value对象  */
+
+    /*   Feature1的Value  */
+
+    std::string temp_End_time_1 = guid_End_time_1 + secondPart;
+    //QByteArray whole_1 = temp_End_time_1.toLatin1();
+    char *value_End_time_1= const_cast<char *>(temp_End_time_1.c_str());
+
+    UA_Server_addObjectNode(server,
+                            UA_NODEID_STRING(3, value_End_time_1),
+                            UA_NODEID_STRING(3, guid_End_time_1),
+                            UA_NODEID_NUMERIC(0, UA_NS0ID_HASCOMPONENT),
+                            UA_QUALIFIEDNAME(3, (char*)"value"),
+                            AMLAttributeType,
+                            Value_Attributes,
+                            NULL,
+                            NULL);
+
+    /*   Feature2的Value  */
+    std::string temp_End_time_2 = guid_End_time_2 + secondPart;
+    //QByteArray whole_1 = temp_End_time_1.toLatin1();
+    char *value_End_time_2= const_cast<char *>(temp_End_time_2.c_str());
+
+    UA_Server_addObjectNode(server,
+                            UA_NODEID_STRING(3, value_End_time_2),
+                            UA_NODEID_STRING(3, guid_End_time_2),
+                            UA_NODEID_NUMERIC(0, UA_NS0ID_HASCOMPONENT),
+                            UA_QUALIFIEDNAME(3, (char*)"value"),
+                            AMLAttributeType,
+                            Value_Attributes,
+                            NULL,
+                            NULL);
+
+    /*   Feature3的Value  */
+    std::string temp_End_time_3 = guid_End_time_3 + secondPart;
+    //QByteArray whole_1 = temp_End_time_1.toLatin1();
+    char *value_End_time_3= const_cast<char *>(temp_End_time_3.c_str());
+
+    UA_Server_addObjectNode(server,
+                            UA_NODEID_STRING(3, value_End_time_3),
+                            UA_NODEID_STRING(3, guid_End_time_3),
+                            UA_NODEID_NUMERIC(0, UA_NS0ID_HASCOMPONENT),
+                            UA_QUALIFIEDNAME(3, (char*)"value"),
+                            AMLAttributeType,
+                            Value_Attributes,
+                            NULL,
+                            NULL);
+
+    /*   Feature4的Value  */
+    std::string temp_End_time_4 = guid_End_time_4 + secondPart;
+    //QByteArray whole_1 = temp_End_time_1.toLatin1();
+    char *value_End_time_4= const_cast<char *>(temp_End_time_4.c_str());
+
+    UA_Server_addObjectNode(server,
+                            UA_NODEID_STRING(3, value_End_time_4),
+                            UA_NODEID_STRING(3, guid_End_time_4),
+                            UA_NODEID_NUMERIC(0, UA_NS0ID_HASCOMPONENT),
+                            UA_QUALIFIEDNAME(3, (char*)"value"),
+                            AMLAttributeType,
+                            Value_Attributes,
+                            NULL,
+                            NULL);
+
+    /*   Feature5的Value  */
+    std::string temp_End_time_5 = guid_End_time_5 + secondPart;
+    //QByteArray whole_1 = temp_End_time_1.toLatin1();
+    char *value_End_time_5= const_cast<char *>(temp_End_time_5.c_str());
+
+    UA_Server_addObjectNode(server,
+                            UA_NODEID_STRING(3, value_End_time_5),
+                            UA_NODEID_STRING(3, guid_End_time_5),
+                            UA_NODEID_NUMERIC(0, UA_NS0ID_HASCOMPONENT),
+                            UA_QUALIFIEDNAME(3, (char*)"value"),
+                            AMLAttributeType,
+                            Value_Attributes,
+                            NULL,
+                            NULL);
+
+    /*   Feature6的Value  */
+    std::string temp_End_time_6 = guid_End_time_6 + secondPart;
+    //QByteArray whole_1 = temp_End_time_1.toLatin1();
+    char *value_End_time_6= const_cast<char *>(temp_End_time_6.c_str());
+
+    UA_Server_addObjectNode(server,
+                            UA_NODEID_STRING(3, value_End_time_6),
+                            UA_NODEID_STRING(3, guid_End_time_6),
+                            UA_NODEID_NUMERIC(0, UA_NS0ID_HASCOMPONENT),
+                            UA_QUALIFIEDNAME(3, (char*)"value"),
+                            AMLAttributeType,
+                            Value_Attributes,
+                            NULL,
+                            NULL);
+
+
+
+    /////
+
+
     /* ----------------------------------- */
 
     //std::string thirdPart = "@Value";
@@ -1554,7 +1940,7 @@ UA_StatusCode manuallyDefineCPPSProduct(UA_Server * server)
 
     /* 添加 Value_2 变量 */
     UA_VariableAttributes valueAttr_2 = UA_VariableAttributes_default;
-    UA_String myString_desc_2 = UA_STRING((char*)"Wood,Upper,Pallet");
+    UA_String myString_desc_2 = UA_STRING((char*)"__UDisk_OR_Wood__,Upper,Pallet");
 
     UA_Variant_setScalar(&valueAttr_2.value, &myString_desc_2, &UA_TYPES[UA_TYPES_STRING]);
     valueAttr_2.description = UA_LOCALIZEDTEXT((char*)"",(char*)"");
@@ -1580,7 +1966,7 @@ UA_StatusCode manuallyDefineCPPSProduct(UA_Server * server)
 
     /* 添加 Value_3 变量 */
     UA_VariableAttributes valueAttr_3 = UA_VariableAttributes_default;
-    UA_String myString_desc_3 = UA_STRING((char*)"Carving,Picture,Wood");
+    UA_String myString_desc_3 = UA_STRING((char*)"__Lasering_OR_Carving__,Picture,__UDisk_OR_Wood__");
 
     UA_Variant_setScalar(&valueAttr_3.value, &myString_desc_3, &UA_TYPES[UA_TYPES_STRING]);
     valueAttr_3.description = UA_LOCALIZEDTEXT((char*)"",(char*)"");
@@ -1606,7 +1992,7 @@ UA_StatusCode manuallyDefineCPPSProduct(UA_Server * server)
 
     /* 添加 Value_4 变量 */
     UA_VariableAttributes valueAttr_4 = UA_VariableAttributes_default;
-    UA_String myString_desc_4 = UA_STRING((char*)"Wood,Inside,Box");
+    UA_String myString_desc_4 = UA_STRING((char*)"__UDisk_OR_Wood__,Inside,Box");
 
     UA_Variant_setScalar(&valueAttr_4.value, &myString_desc_4, &UA_TYPES[UA_TYPES_STRING]);
     valueAttr_4.description = UA_LOCALIZEDTEXT((char*)"",(char*)"");
@@ -2003,6 +2389,329 @@ UA_StatusCode manuallyDefineCPPSProduct(UA_Server * server)
                               NULL,
                               NULL);
 
+
+
+    ////////////
+
+    /*----------------------------*/
+    /* 添加 Value_1 变量 */
+
+    UA_String myString_Start_time_1 = UA_STRING((char*)"");
+
+    UA_Variant_setScalar(&valueAttr_1.value, &myString_Start_time_1, &UA_TYPES[UA_TYPES_STRING]);
+    valueAttr_1.description = UA_LOCALIZEDTEXT((char*)"",(char*)"");
+    valueAttr_1.displayName = UA_LOCALIZEDTEXT((char*)"",(char*)"Value");
+    valueAttr_1.dataType = UA_TYPES[UA_TYPES_STRING].typeId;
+    valueAttr_1.accessLevel = UA_ACCESSLEVELMASK_READ | UA_ACCESSLEVELMASK_WRITE;
+
+
+    std::string temp_value_Start_time1 =guid_Start_time_1 + secondPart + thirdPart;
+    //QByteArray whole_value_Start_time1 = temp_value_Start_time1.toLatin1();
+    char *value_Start_timevar_1 = const_cast<char *>(temp_value_Start_time1.c_str());
+
+    UA_Server_addVariableNode(server,
+                              UA_NODEID_STRING(3, value_Start_timevar_1),
+                              UA_NODEID_STRING(3, value_Start_time_1),
+                              UA_NODEID_NUMERIC(0, UA_NS0ID_HASPROPERTY),
+                              UA_QUALIFIEDNAME(3, (char*)"Value"),
+                              AMLVariableType,
+                              valueAttr_1,
+                              NULL,
+                              NULL);
+
+    /* 添加 value_Start_time2 变量 */
+
+    UA_String myString_Start_time_2 = UA_STRING((char*)"");
+
+    UA_Variant_setScalar(&valueAttr_2.value, &myString_Start_time_2, &UA_TYPES[UA_TYPES_STRING]);
+    valueAttr_2.description = UA_LOCALIZEDTEXT((char*)"",(char*)"");
+    valueAttr_2.displayName = UA_LOCALIZEDTEXT((char*)"",(char*)"Value");
+    valueAttr_2.dataType = UA_TYPES[UA_TYPES_STRING].typeId;
+    valueAttr_2.accessLevel = UA_ACCESSLEVELMASK_READ | UA_ACCESSLEVELMASK_WRITE;
+
+
+    /*   value_Start_time2变量  */
+    std::string temp_value_Start_time2 =guid_Start_time_2 + secondPart + thirdPart;
+    //QByteArray whole_value_Start_time1 = temp_value_Start_time1.toLatin1();
+    char *value_Start_timevar_2 = const_cast<char *>(temp_value_Start_time2.c_str());
+
+    UA_Server_addVariableNode(server,
+                              UA_NODEID_STRING(3, value_Start_timevar_2),
+                              UA_NODEID_STRING(3, value_Start_time_2),
+                              UA_NODEID_NUMERIC(0, UA_NS0ID_HASPROPERTY),
+                              UA_QUALIFIEDNAME(3, (char*)"Value"),
+                              AMLVariableType,
+                              valueAttr_2,
+                              NULL,
+                              NULL);
+
+    /* 添加 value_Start_time3 变量 */
+
+    UA_String myString_Start_time_3 = UA_STRING((char*)"");
+
+    UA_Variant_setScalar(&valueAttr_3.value, &myString_Start_time_3, &UA_TYPES[UA_TYPES_STRING]);
+    valueAttr_3.description = UA_LOCALIZEDTEXT((char*)"",(char*)"");
+    valueAttr_3.displayName = UA_LOCALIZEDTEXT((char*)"",(char*)"Value");
+    valueAttr_3.dataType = UA_TYPES[UA_TYPES_STRING].typeId;
+    valueAttr_3.accessLevel = UA_ACCESSLEVELMASK_READ | UA_ACCESSLEVELMASK_WRITE;
+
+
+    /*   value_Start_time3变量  */
+    std::string temp_value_Start_time3 =guid_Start_time_3 + secondPart + thirdPart;
+    //QByteArray whole_value_Start_time1 = temp_value_Start_time1.toLatin1();
+    char *value_Start_timevar_3 = const_cast<char *>(temp_value_Start_time3.c_str());
+
+    UA_Server_addVariableNode(server,
+                              UA_NODEID_STRING(3, value_Start_timevar_3),
+                              UA_NODEID_STRING(3, value_Start_time_3),
+                              UA_NODEID_NUMERIC(0, UA_NS0ID_HASPROPERTY),
+                              UA_QUALIFIEDNAME(3, (char*)"Value"),
+                              AMLVariableType,
+                              valueAttr_3,
+                              NULL,
+                              NULL);
+
+    /* 添加 value_Start_time4 变量 */
+
+    UA_String myString_Start_time_4 = UA_STRING((char*)"");
+
+    UA_Variant_setScalar(&valueAttr_4.value, &myString_Start_time_4, &UA_TYPES[UA_TYPES_STRING]);
+    valueAttr_4.description = UA_LOCALIZEDTEXT((char*)"",(char*)"");
+    valueAttr_4.displayName = UA_LOCALIZEDTEXT((char*)"",(char*)"Value");
+    valueAttr_4.dataType = UA_TYPES[UA_TYPES_STRING].typeId;
+    valueAttr_4.accessLevel = UA_ACCESSLEVELMASK_READ | UA_ACCESSLEVELMASK_WRITE;
+
+
+    /*   value_Start_time4变量  */
+    std::string temp_value_Start_time4 =guid_Start_time_4 + secondPart + thirdPart;
+    //QByteArray whole_value_Start_time1 = temp_value_Start_time1.toLatin1();
+    char *value_Start_timevar_4 = const_cast<char *>(temp_value_Start_time4.c_str());
+
+    UA_Server_addVariableNode(server,
+                              UA_NODEID_STRING(3, value_Start_timevar_4),
+                              UA_NODEID_STRING(3, value_Start_time_4),
+                              UA_NODEID_NUMERIC(0, UA_NS0ID_HASPROPERTY),
+                              UA_QUALIFIEDNAME(3, (char*)"Value"),
+                              AMLVariableType,
+                              valueAttr_4,
+                              NULL,
+                              NULL);
+
+
+    /* 添加 value_Start_time5 变量 */
+
+    UA_String myString_Start_time_5 = UA_STRING((char*)"");
+
+    UA_Variant_setScalar(&valueAttr_5.value, &myString_Start_time_5, &UA_TYPES[UA_TYPES_STRING]);
+    valueAttr_5.description = UA_LOCALIZEDTEXT((char*)"",(char*)"");
+    valueAttr_5.displayName = UA_LOCALIZEDTEXT((char*)"",(char*)"Value");
+    valueAttr_5.dataType = UA_TYPES[UA_TYPES_STRING].typeId;
+    valueAttr_5.accessLevel = UA_ACCESSLEVELMASK_READ | UA_ACCESSLEVELMASK_WRITE;
+
+
+    /*   value_Start_time5变量  */
+    std::string temp_value_Start_time5 =guid_Start_time_5 + secondPart + thirdPart;
+    //QByteArray whole_value_Start_time1 = temp_value_Start_time1.toLatin1();
+    char *value_Start_timevar_5 = const_cast<char *>(temp_value_Start_time5.c_str());
+
+    UA_Server_addVariableNode(server,
+                              UA_NODEID_STRING(3, value_Start_timevar_5),
+                              UA_NODEID_STRING(3, value_Start_time_5),
+                              UA_NODEID_NUMERIC(0, UA_NS0ID_HASPROPERTY),
+                              UA_QUALIFIEDNAME(3, (char*)"Value"),
+                              AMLVariableType,
+                              valueAttr_5,
+                              NULL,
+                              NULL);
+
+
+    /* 添加 value_Start_time6 变量 */
+
+    UA_String myString_Start_time_6 = UA_STRING((char*)"");
+
+    UA_Variant_setScalar(&valueAttr_6.value, &myString_Start_time_6, &UA_TYPES[UA_TYPES_STRING]);
+    valueAttr_6.description = UA_LOCALIZEDTEXT((char*)"",(char*)"");
+    valueAttr_6.displayName = UA_LOCALIZEDTEXT((char*)"",(char*)"Value");
+    valueAttr_6.dataType = UA_TYPES[UA_TYPES_STRING].typeId;
+    valueAttr_6.accessLevel = UA_ACCESSLEVELMASK_READ | UA_ACCESSLEVELMASK_WRITE;
+
+
+    /*   value_Start_time6变量  */
+    std::string temp_value_Start_time6 = guid_Start_time_6 + secondPart + thirdPart;
+    //QByteArray whole_value_Start_time1 = temp_value_Start_time1.toLatin1();
+    char *value_Start_timevar_6 = const_cast<char *>(temp_value_Start_time6.c_str());
+
+    UA_Server_addVariableNode(server,
+                              UA_NODEID_STRING(3, value_Start_timevar_6),
+                              UA_NODEID_STRING(3, value_Start_time_6),
+                              UA_NODEID_NUMERIC(0, UA_NS0ID_HASPROPERTY),
+                              UA_QUALIFIEDNAME(3, (char*)"Value"),
+                              AMLVariableType,
+                              valueAttr_6,
+                              NULL,
+                              NULL);
+
+    /*----------------------------*/
+    /* 添加 Value_1 变量 */
+
+    UA_String myString_End_time_1 = UA_STRING((char*)"");
+
+    UA_Variant_setScalar(&valueAttr_1.value, &myString_End_time_1, &UA_TYPES[UA_TYPES_STRING]);
+    valueAttr_1.description = UA_LOCALIZEDTEXT((char*)"",(char*)"");
+    valueAttr_1.displayName = UA_LOCALIZEDTEXT((char*)"",(char*)"Value");
+    valueAttr_1.dataType = UA_TYPES[UA_TYPES_STRING].typeId;
+    valueAttr_1.accessLevel = UA_ACCESSLEVELMASK_READ | UA_ACCESSLEVELMASK_WRITE;
+
+
+    std::string temp_value_End_time1 =guid_End_time_1 + secondPart + thirdPart;
+    //QByteArray whole_value_End_time1 = temp_value_End_time1.toLatin1();
+    char *value_End_timevar_1 = const_cast<char *>(temp_value_End_time1.c_str());
+
+    UA_Server_addVariableNode(server,
+                              UA_NODEID_STRING(3, value_End_timevar_1),
+                              UA_NODEID_STRING(3, value_End_time_1),
+                              UA_NODEID_NUMERIC(0, UA_NS0ID_HASPROPERTY),
+                              UA_QUALIFIEDNAME(3, (char*)"Value"),
+                              AMLVariableType,
+                              valueAttr_1,
+                              NULL,
+                              NULL);
+
+    /* 添加 value_End_time2 变量 */
+
+    UA_String myString_End_time_2 = UA_STRING((char*)"");
+
+    UA_Variant_setScalar(&valueAttr_2.value, &myString_End_time_2, &UA_TYPES[UA_TYPES_STRING]);
+    valueAttr_2.description = UA_LOCALIZEDTEXT((char*)"",(char*)"");
+    valueAttr_2.displayName = UA_LOCALIZEDTEXT((char*)"",(char*)"Value");
+    valueAttr_2.dataType = UA_TYPES[UA_TYPES_STRING].typeId;
+    valueAttr_2.accessLevel = UA_ACCESSLEVELMASK_READ | UA_ACCESSLEVELMASK_WRITE;
+
+
+    /*   value_End_time2变量  */
+    std::string temp_value_End_time2 =guid_End_time_2 + secondPart + thirdPart;
+    //QByteArray whole_value_End_time1 = temp_value_End_time1.toLatin1();
+    char *value_End_timevar_2 = const_cast<char *>(temp_value_End_time2.c_str());
+
+    UA_Server_addVariableNode(server,
+                              UA_NODEID_STRING(3, value_End_timevar_2),
+                              UA_NODEID_STRING(3, value_End_time_2),
+                              UA_NODEID_NUMERIC(0, UA_NS0ID_HASPROPERTY),
+                              UA_QUALIFIEDNAME(3, (char*)"Value"),
+                              AMLVariableType,
+                              valueAttr_2,
+                              NULL,
+                              NULL);
+
+    /* 添加 value_End_time3 变量 */
+
+    UA_String myString_End_time_3 = UA_STRING((char*)"");
+
+    UA_Variant_setScalar(&valueAttr_3.value, &myString_End_time_3, &UA_TYPES[UA_TYPES_STRING]);
+    valueAttr_3.description = UA_LOCALIZEDTEXT((char*)"",(char*)"");
+    valueAttr_3.displayName = UA_LOCALIZEDTEXT((char*)"",(char*)"Value");
+    valueAttr_3.dataType = UA_TYPES[UA_TYPES_STRING].typeId;
+    valueAttr_3.accessLevel = UA_ACCESSLEVELMASK_READ | UA_ACCESSLEVELMASK_WRITE;
+
+
+    /*   value_End_time3变量  */
+    std::string temp_value_End_time3 =guid_End_time_3 + secondPart + thirdPart;
+    //QByteArray whole_value_End_time1 = temp_value_End_time1.toLatin1();
+    char *value_End_timevar_3 = const_cast<char *>(temp_value_End_time3.c_str());
+
+    UA_Server_addVariableNode(server,
+                              UA_NODEID_STRING(3, value_End_timevar_3),
+                              UA_NODEID_STRING(3, value_End_time_3),
+                              UA_NODEID_NUMERIC(0, UA_NS0ID_HASPROPERTY),
+                              UA_QUALIFIEDNAME(3, (char*)"Value"),
+                              AMLVariableType,
+                              valueAttr_3,
+                              NULL,
+                              NULL);
+
+    /* 添加 value_End_time4 变量 */
+
+    UA_String myString_End_time_4 = UA_STRING((char*)"");
+
+    UA_Variant_setScalar(&valueAttr_4.value, &myString_End_time_4, &UA_TYPES[UA_TYPES_STRING]);
+    valueAttr_4.description = UA_LOCALIZEDTEXT((char*)"",(char*)"");
+    valueAttr_4.displayName = UA_LOCALIZEDTEXT((char*)"",(char*)"Value");
+    valueAttr_4.dataType = UA_TYPES[UA_TYPES_STRING].typeId;
+    valueAttr_4.accessLevel = UA_ACCESSLEVELMASK_READ | UA_ACCESSLEVELMASK_WRITE;
+
+
+    /*   value_End_time4变量  */
+    std::string temp_value_End_time4 =guid_End_time_4 + secondPart + thirdPart;
+    //QByteArray whole_value_End_time1 = temp_value_End_time1.toLatin1();
+    char *value_End_timevar_4 = const_cast<char *>(temp_value_End_time4.c_str());
+
+    UA_Server_addVariableNode(server,
+                              UA_NODEID_STRING(3, value_End_timevar_4),
+                              UA_NODEID_STRING(3, value_End_time_4),
+                              UA_NODEID_NUMERIC(0, UA_NS0ID_HASPROPERTY),
+                              UA_QUALIFIEDNAME(3, (char*)"Value"),
+                              AMLVariableType,
+                              valueAttr_4,
+                              NULL,
+                              NULL);
+
+
+    /* 添加 value_End_time5 变量 */
+
+    UA_String myString_End_time_5 = UA_STRING((char*)"");
+
+    UA_Variant_setScalar(&valueAttr_5.value, &myString_End_time_5, &UA_TYPES[UA_TYPES_STRING]);
+    valueAttr_5.description = UA_LOCALIZEDTEXT((char*)"",(char*)"");
+    valueAttr_5.displayName = UA_LOCALIZEDTEXT((char*)"",(char*)"Value");
+    valueAttr_5.dataType = UA_TYPES[UA_TYPES_STRING].typeId;
+    valueAttr_5.accessLevel = UA_ACCESSLEVELMASK_READ | UA_ACCESSLEVELMASK_WRITE;
+
+
+    /*   value_End_time5变量  */
+    std::string temp_value_End_time5 =guid_End_time_5 + secondPart + thirdPart;
+    //QByteArray whole_value_End_time1 = temp_value_End_time1.toLatin1();
+    char *value_End_timevar_5 = const_cast<char *>(temp_value_End_time5.c_str());
+
+    UA_Server_addVariableNode(server,
+                              UA_NODEID_STRING(3, value_End_timevar_5),
+                              UA_NODEID_STRING(3, value_End_time_5),
+                              UA_NODEID_NUMERIC(0, UA_NS0ID_HASPROPERTY),
+                              UA_QUALIFIEDNAME(3, (char*)"Value"),
+                              AMLVariableType,
+                              valueAttr_5,
+                              NULL,
+                              NULL);
+
+
+    /* 添加 value_End_time6 变量 */
+
+    UA_String myString_End_time_6 = UA_STRING((char*)"");
+
+    UA_Variant_setScalar(&valueAttr_6.value, &myString_End_time_6, &UA_TYPES[UA_TYPES_STRING]);
+    valueAttr_6.description = UA_LOCALIZEDTEXT((char*)"",(char*)"");
+    valueAttr_6.displayName = UA_LOCALIZEDTEXT((char*)"",(char*)"Value");
+    valueAttr_6.dataType = UA_TYPES[UA_TYPES_STRING].typeId;
+    valueAttr_6.accessLevel = UA_ACCESSLEVELMASK_READ | UA_ACCESSLEVELMASK_WRITE;
+
+
+    /*   value_End_time6变量  */
+    std::string temp_value_End_time6 = guid_End_time_6 + secondPart + thirdPart;
+    //QByteArray whole_value_End_time1 = temp_value_End_time1.toLatin1();
+    char *value_End_timevar_6 = const_cast<char *>(temp_value_End_time6.c_str());
+
+    UA_Server_addVariableNode(server,
+                              UA_NODEID_STRING(3, value_End_timevar_6),
+                              UA_NODEID_STRING(3, value_End_time_6),
+                              UA_NODEID_NUMERIC(0, UA_NS0ID_HASPROPERTY),
+                              UA_QUALIFIEDNAME(3, (char*)"Value"),
+                              AMLVariableType,
+                              valueAttr_6,
+                              NULL,
+                              NULL);
+
+
+
+    ////////////
 
 
     return retval_myNS;
