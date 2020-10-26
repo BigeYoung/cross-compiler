@@ -13,7 +13,7 @@ from simple_http_server import Redirect
 from simple_http_server import server
 
 # 打开数据库
-db = MySQLdb.connect(host="mysql", user="cpps",
+db = MySQLdb.connect(host="mariadb", user="cpps",
                      password="cpps", database="cpps_db", charset='utf8')
 cursor = db.cursor()
 
