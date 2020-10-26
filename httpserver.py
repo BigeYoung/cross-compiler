@@ -48,6 +48,11 @@ def product_reactor(req=Request()):
             continue
         s = requests.get(
             'http://192.168.137.121:8500/v1/catalog/service/'+s_id+'?dc=dc1')
+
+        status = requests.get("http://192.168.137.121:8500/v1/health/node/"+s.json()[0]["Node"]).json()[0]["Status"]
+        if status != "passing":
+            continue
+
         ip = s.json()[0]["TaggedAddresses"]["wan"]
         # -成功 找到空托盘
 
