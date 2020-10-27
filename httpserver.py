@@ -32,7 +32,6 @@ def opcua_server(req_items, ip):
     p = Popen('./build.sh %s' % (ip,), shell=True)
     p.wait()
 
-
 @request_map("/product_reactor", method=["PUT"])
 def product_reactor(req=Request()):
     '''产品响应器请求空托盘
@@ -67,7 +66,6 @@ def product_reactor(req=Request()):
         cursor.execute(sql, val)
         # 提交到数据库执行
         db.commit()
-        print(cursor._last_executed)
         print("更新产品与匹配的托盘：", cursor.rowcount, "条记录被改变。")
 
         # 等待Consul将对应托盘标记为忙碌完成
