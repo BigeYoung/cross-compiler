@@ -26,7 +26,7 @@ def opcua_server(req_items, ip):
     with open('cpp_template/myUAModel.cpp') as infile, open('output/myUAModel.cpp', 'w') as outfile:
         for line in infile:
             for src, target in req_items:
-                line = line.replace(src, target)
+                line = line.replace(src, str(target))
             outfile.write(line)
     # 编译cpp文件，下载到树莓派里
     p = Popen('./build.sh %s' % (ip,), shell=True)
