@@ -1,3 +1,4 @@
+mkdir -p output/build
 cd output/build
 cmake ..
 make
