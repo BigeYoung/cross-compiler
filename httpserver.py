@@ -61,7 +61,7 @@ def product_reactor(req=Request()):
         # 将托盘IP、ID写入数据库
         ip_port = 'opc.tcp://'+ip+':4844'
         sql = "UPDATE `products` SET `pallet_guid`=%s, `pallet_ip_port`=%s WHERE `guid`=%s"
-        val = (s.json()[0]["ID"], ip_port, product_guid)
+        val = (s.json()[0]["ServiceID"], ip_port, product_guid)
         # 执行sql语句
         cursor.execute(sql, val)
         # 提交到数据库执行
