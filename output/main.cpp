@@ -1,3 +1,4 @@
+
 #include "open62541.h"
 #include "myUAModel.h"
 
@@ -34,11 +35,15 @@ exitExitMethodCallback(UA_Server *server,
     UA_LOG_INFO(UA_Log_Stdout, UA_LOGCATEGORY_SERVER, "exit was called");
 
 
-    running = false;
-
     system("cp /etc/consul.d/services.json.backup /etc/consul.d/services.json");
+    
+    Sleep(500);
 
     system("consul services register /etc/consul.d/services.json");
+
+    Sleep(2000);
+
+    running = false;
 
     return UA_STATUSCODE_GOOD;
 
