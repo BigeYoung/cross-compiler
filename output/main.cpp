@@ -24,6 +24,8 @@ exitExitMethodCallback(UA_Server *server,
 {
     system("cp /etc/consul.d/services.json.backup /etc/consul.d/services.json");
     system("consul services register /etc/consul.d/services.json");
+    
+    sleep(1);
 
     running = false;
 
