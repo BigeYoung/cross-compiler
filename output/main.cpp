@@ -44,7 +44,7 @@ exitExitMethodCallback(UA_Server *server,
 
     Sleep(2000);
 
-    running = false;
+    // running = false;
 
     return UA_STATUSCODE_GOOD;
 
