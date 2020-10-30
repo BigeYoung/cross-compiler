@@ -22,17 +22,10 @@ exitExitMethodCallback(UA_Server *server,
                          size_t inputSize, const UA_Variant *input,
                          size_t outputSize, UA_Variant *output)
 {
-    auto i = system("cp /etc/consul.d/services.json.backup /etc/consul.d/services.json");
-    UA_LOG_INFO(UA_Log_Stdout, UA_LOGCATEGORY_SERVER, "copy service file" + i);
-    
-    Sleep(1000);
+    system("cp /etc/consul.d/services.json.backup /etc/consul.d/services.json");
+    system("consul services register /etc/consul.d/services.json");
 
-    auto i = system("consul services register /etc/consul.d/services.json");
-    UA_LOG_INFO(UA_Log_Stdout, UA_LOGCATEGORY_SERVER, "consul service register" + i);
-
-    Sleep(2000);
-
-    // running = false;
+    running = false;
 
     return UA_STATUSCODE_GOOD;
 
