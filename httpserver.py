@@ -17,6 +17,7 @@ db = MySQLdb.connect(host="mariadb", user="cpps",
                      password="cpps", database="cpps_db", charset='utf8')
 cursor = db.cursor()
 
+
 def opcua_server(req_items, ip):
     '''产品响应器启动线程：生成OPC UA程序
         - 成功：`products.status`标记为：`processing`
@@ -32,6 +33,7 @@ def opcua_server(req_items, ip):
     p = Popen('./build.sh %s' % (ip,), shell=True)
     p.wait()
 
+
 @request_map("/product_reactor", method=["PUT"])
 def product_reactor(req=Request()):
     '''产品响应器请求空托盘
@@ -40,19 +42,13 @@ def product_reactor(req=Request()):
     '''
     product_guid = req.json["__PRODUCT_GUID__"]
     # 查询空托盘
-    r = requests.get('http://192.168.137.121:8500/v1/catalog/services?dc=dc1')
-    services = r.json().items()
-    for s_id, s_tags in services:
-        if "Product" not in s_tags or "empty" not in s_tags:
-            continue
-        s = requests.get(
-            'http://192.168.137.121:8500/v1/catalog/service/'+s_id+'?dc=dc1')
-
-        status = requests.get("http://192.168.137.121:8500/v1/health/node/"+s.json()[0]["Node"]).json()[0]["Status"]
+    r = requests.get('http://192.168.137.121:8500/v1/catalog/service/pallet?dc=dc1', params={'filter': '"empty" in ServiceTags'})
+    for service in r.json():
+        status = requests.get("http://192.168.137.121:8500/v1/health/node/"+service["Node"]).json()[0]["Status"]
         if status != "passing":
             continue
 
-        ip = s.json()[0]["TaggedAddresses"]["wan"]
+        ip = service["Address"]
         # -成功 找到空托盘
 
         # Consul将对应托盘标记为忙碌
@@ -61,7 +57,7 @@ def product_reactor(req=Request()):
         # 将托盘IP、ID写入数据库
         ip_port = 'opc.tcp://'+ip+':4844'
         sql = "UPDATE `products` SET `pallet_guid`=%s, `pallet_ip_port`=%s WHERE `guid`=%s"
-        val = (s.json()[0]["ServiceID"], ip_port, product_guid)
+        val = (service["ServiceID"], ip_port, product_guid)
         print(val)
         # 执行sql语句
         cursor.execute(sql, val)
