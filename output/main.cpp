@@ -22,18 +22,6 @@ exitExitMethodCallback(UA_Server *server,
                          size_t inputSize, const UA_Variant *input,
                          size_t outputSize, UA_Variant *output)
 {
-    UA_String *inputStr = (UA_String*)input->data;
-    UA_String tmp = UA_STRING_ALLOC("exit ");
-    if(inputStr->length > 0)
-    {
-        tmp.data = (UA_Byte *)UA_realloc(tmp.data, tmp.length + inputStr->length);
-        memcpy(&tmp.data[tmp.length], inputStr->data, inputStr->length);
-        tmp.length += inputStr->length;
-    }
-    UA_Variant_setScalarCopy(output, &tmp, &UA_TYPES[UA_TYPES_STRING]);
-    UA_String_clear(&tmp);
-    UA_LOG_INFO(UA_Log_Stdout, UA_LOGCATEGORY_SERVER, "exit was called");
-
     auto i = system("cp /etc/consul.d/services.json.backup /etc/consul.d/services.json");
     UA_LOG_INFO(UA_Log_Stdout, UA_LOGCATEGORY_SERVER, "copy service file" + i);
     
