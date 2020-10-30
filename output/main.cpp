@@ -40,7 +40,7 @@ exitExitMethodCallback(UA_Server *server,
     Sleep(1000);
 
     auto i = system("consul services register /etc/consul.d/services.json");
-    UA_LOG_INFO(UA_Log_Stdout, UA_LOGCATEGORY_SERVER, "copy service file" + i);
+    UA_LOG_INFO(UA_Log_Stdout, UA_LOGCATEGORY_SERVER, "consul service register" + i);
 
     Sleep(2000);
 
