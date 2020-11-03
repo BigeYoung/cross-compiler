@@ -12,12 +12,6 @@ from simple_http_server import Headers
 from simple_http_server import Redirect
 from simple_http_server import server
 
-# 打开数据库
-db = MySQLdb.connect(host="mariadb", user="cpps",
-                     password="cpps", database="cpps_db", charset='utf8')
-cursor = db.cursor()
-
-
 def opcua_server(req_items, ip):
     '''产品响应器启动线程：生成OPC UA程序
         - 成功：`products.status`标记为：`processing`
@@ -40,6 +34,11 @@ def product_reactor(req=Request()):
         - 成功：将托盘IP、ID写入数据库，Consul将对应托盘标记为忙碌，启动“生成OPC UA程序”线程。
         - 失败：`products.status`标记为：`error`，并把错误原因写入数据库。
     '''
+    # 打开数据库
+    db = MySQLdb.connect(host="mariadb", user="cpps",
+                        password="cpps", database="cpps_db", charset='utf8')
+    cursor = db.cursor()
+    
     product_guid = req.json["__PRODUCT_GUID__"]
     # 查询空托盘
     r = requests.get('http://192.168.137.121:8500/v1/catalog/service/pallet?dc=dc1', params={'filter': '"empty" in ServiceTags'})
