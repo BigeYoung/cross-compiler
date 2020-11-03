@@ -70,6 +70,8 @@ def product_reactor(req=Request()):
         # 启动“生成OPC UA程序”线程。
         _thread.start_new_thread(
             opcua_server, (req.json.items(), ip,))
+        # 关闭数据库连接
+        db.close()
         return ip
 
     # 失败：`product.status`标记为：`error`，并把错误原因写入数据库。
@@ -77,10 +79,10 @@ def product_reactor(req=Request()):
     val = (product_guid, )
     cursor.execute(sql, val)
     db.commit()
+    # 关闭数据库连接
+    db.close()
     raise HttpError(500, "没有可用的空托盘了。")
 
 
 server.start()
 
-# 关闭数据库连接
-db.close()
