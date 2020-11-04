@@ -263,11 +263,11 @@ UA_StatusCode manuallyDefineCPPSProduct(UA_Server * server)
                                 NULL,
                                 NULL);
 
-    /* 添加对象类型  Box_UDisk  */
-    UA_NodeId Box_UDisk_Type= UA_NODEID_STRING(3, (char*)"Box_UDisk");
+    /* 添加对象类型  Box___UDisk_OR_Wood__  */
+    UA_NodeId Box___UDisk_OR_Wood___Type= UA_NODEID_STRING(3, (char*)"Box___UDisk_OR_Wood__");
 
-    UA_ObjectTypeAttributes Box_UDisk_Type_Attributes = UA_ObjectTypeAttributes_default;
-    Box_UDisk_Type_Attributes.displayName = UA_LOCALIZEDTEXT((char*)"", (char*)"Box_UDisk");
+    UA_ObjectTypeAttributes Box___UDisk_OR_Wood___Type_Attributes = UA_ObjectTypeAttributes_default;
+    Box___UDisk_OR_Wood___Type_Attributes.displayName = UA_LOCALIZEDTEXT((char*)"", (char*)"Box___UDisk_OR_Wood__");
     /*
     UA_Server_addObjectTypeNode(UA_Server *server,
         const UA_NodeId requestedNewNodeId,
@@ -279,11 +279,11 @@ UA_StatusCode manuallyDefineCPPSProduct(UA_Server * server)
         UA_NodeId *outNewNodeId);
     */
     UA_Server_addObjectTypeNode(server,
-                                Box_UDisk_Type,
+                                Box___UDisk_OR_Wood___Type,
                                 FinishedProduct,
                                 UA_NODEID_NUMERIC(0, UA_NS0ID_HASSUBTYPE),
-                                UA_QUALIFIEDNAME(3, (char*)"Box_UDisk"),
-                                Box_UDisk_Type_Attributes,
+                                UA_QUALIFIEDNAME(3, (char*)"Box___UDisk_OR_Wood__"),
+                                Box___UDisk_OR_Wood___Type_Attributes,
                                 NULL,
                                 NULL);
 
@@ -414,14 +414,14 @@ UA_StatusCode manuallyDefineCPPSProduct(UA_Server * server)
                             NULL);
 
     //这里除了问题
-    /* 添加 Box_UDisk 对象 */
+    /* 添加 Box___UDisk_OR_Wood__ 对象 */
 
-    UA_NodeId Box_UDisk_Object = UA_NODEID_STRING(3, (char*)"__PRODUCT_GUID__");
+    UA_NodeId Box___UDisk_OR_Wood___Object = UA_NODEID_STRING(3, (char*)"__PRODUCT_GUID__");
 
-    UA_ObjectAttributes Box_UDisk_Object_Attributes = UA_ObjectAttributes_default;
+    UA_ObjectAttributes Box___UDisk_OR_Wood___Object_Attributes = UA_ObjectAttributes_default;
 
-    Box_UDisk_Object_Attributes.description = UA_LOCALIZEDTEXT((char*)"", (char*)"");
-    Box_UDisk_Object_Attributes.displayName = UA_LOCALIZEDTEXT((char*)"", (char*)"Box_UDisk");
+    Box___UDisk_OR_Wood___Object_Attributes.description = UA_LOCALIZEDTEXT((char*)"", (char*)"");
+    Box___UDisk_OR_Wood___Object_Attributes.displayName = UA_LOCALIZEDTEXT((char*)"", (char*)"Box___UDisk_OR_Wood__");
 
     //
     //UA_Server_addObjectNode(UA_Server *server,
@@ -435,12 +435,12 @@ UA_StatusCode manuallyDefineCPPSProduct(UA_Server * server)
     //	UA_NodeId *outNewNodeId);
 
     UA_Server_addObjectNode(server,
-                            Box_UDisk_Object,
+                            Box___UDisk_OR_Wood___Object,
                             Product,
                             UA_NODEID_NUMERIC(0, UA_NS0ID_HASCOMPONENT),
-                            UA_QUALIFIEDNAME(3, (char*)"Box_UDisk"),
-                            Box_UDisk_Type,
-                            Box_UDisk_Object_Attributes,
+                            UA_QUALIFIEDNAME(3, (char*)"Box___UDisk_OR_Wood__"),
+                            Box___UDisk_OR_Wood___Type,
+                            Box___UDisk_OR_Wood___Object_Attributes,
                             NULL,
                             NULL);
 
@@ -466,7 +466,7 @@ UA_StatusCode manuallyDefineCPPSProduct(UA_Server * server)
 
     UA_Server_addObjectNode(server,
                             AAS,
-                            Box_UDisk_Object,
+                            Box___UDisk_OR_Wood___Object,
                             UA_NODEID_NUMERIC(0, UA_NS0ID_HASCOMPONENT),
                             UA_QUALIFIEDNAME(3, (char*)"AAS"),
                             AMLInternalElement,
@@ -2016,7 +2016,7 @@ UA_StatusCode manuallyDefineCPPSProduct(UA_Server * server)
 
     /* 添加 Value_2 变量 */
     UA_VariableAttributes valueAttr_2 = UA_VariableAttributes_default;
-    UA_String myString_desc_2 = UA_STRING((char*)"UDisk,Upper,Pallet");
+    UA_String myString_desc_2 = UA_STRING((char*)"__UDisk_OR_Wood__,Upper,Pallet");
 
     UA_Variant_setScalar(&valueAttr_2.value, &myString_desc_2, &UA_TYPES[UA_TYPES_STRING]);
     valueAttr_2.description = UA_LOCALIZEDTEXT((char*)"",(char*)"");
@@ -2042,7 +2042,7 @@ UA_StatusCode manuallyDefineCPPSProduct(UA_Server * server)
 
     /* 添加 Value_3 变量 */
     UA_VariableAttributes valueAttr_3 = UA_VariableAttributes_default;
-    UA_String myString_desc_3 = UA_STRING((char*)"Lasering,Picture,UDisk");
+    UA_String myString_desc_3 = UA_STRING((char*)"__Lasering_OR_Carving__,Picture,__UDisk_OR_Wood__");
 
     UA_Variant_setScalar(&valueAttr_3.value, &myString_desc_3, &UA_TYPES[UA_TYPES_STRING]);
     valueAttr_3.description = UA_LOCALIZEDTEXT((char*)"",(char*)"");
@@ -2068,7 +2068,7 @@ UA_StatusCode manuallyDefineCPPSProduct(UA_Server * server)
 
     /* 添加 Value_4 变量 */
     UA_VariableAttributes valueAttr_4 = UA_VariableAttributes_default;
-    UA_String myString_desc_4 = UA_STRING((char*)"UDisk,Inside,Box");
+    UA_String myString_desc_4 = UA_STRING((char*)"__UDisk_OR_Wood__,Inside,Box");
 
     UA_Variant_setScalar(&valueAttr_4.value, &myString_desc_4, &UA_TYPES[UA_TYPES_STRING]);
     valueAttr_4.description = UA_LOCALIZEDTEXT((char*)"",(char*)"");
