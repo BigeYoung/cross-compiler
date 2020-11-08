@@ -43,7 +43,7 @@ def product_reactor(req=Request()):
     # 查询空托盘
     r = requests.get('http://192.168.137.121:8500/v1/catalog/service/pallet?dc=dc1', params={'filter': '"empty" in ServiceTags'})
     for service in r.json():
-        status = requests.get("http://192.168.137.121:8500/v1/health/node/"+service["Node"]).json()[0]["Status"]
+        status = requests.get("http://192.168.137.121:8500/v1/health/node/"+service["Node"]+"?dc=dc1").json()[0]["Status"]
         if status != "passing":
             continue
 
